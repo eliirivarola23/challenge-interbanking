@@ -12,10 +12,13 @@ export const ContainerCard = styled('div')`
   flex-direction: column;
   justify-content: space-between;
   align-items: baseline;
+
   & > p {
+    width: 180px;
     text-align: initial;
     margin-top: 5px;
     white-space: pre-wrap;
+    overflow-wrap: break-word;
   }
   & > div {
     display: flex;

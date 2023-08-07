@@ -7,13 +7,17 @@ import Message from '../Message';
 import CardPhrase from '../CardPhrase';
 import CardPhraseContain from './components/CardPhraseContain';
 import PhraseSaveContainer from '../PhraseSave/PhraseSaveContainer';
-interface PropsData {
+
+interface DataDetails {
   detail: string;
   color: string;
+  createdAt: string;
+  id: string;
 }
+
 const List = () => {
   const location = useLocation();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<DataDetails[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const searchParams = useMemo(() => Object.fromEntries(new URLSearchParams(location.search)).search?.replace('=', ''), [location.search]);
@@ -25,7 +29,7 @@ const List = () => {
         setLoading(true);
 
         const response = await phrasesServices.listPhrases({ ...(searchParams && { detail: searchParams }) });
-        if (response) setData(response.data || []);
+        if (response) setData(response.data);
       } catch (error) {
         setError('There was an error performing the search, please try again');
       } finally {
@@ -38,7 +42,7 @@ const List = () => {
     };
   }, [searchParams]);
 
-  const updateData = (newData: PropsData) => {
+  const updateData = (newData: DataDetails) => {
     const cloneData = [...data];
     if (newData) cloneData?.push(newData);
     setData(cloneData);

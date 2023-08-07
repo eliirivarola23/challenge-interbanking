@@ -7,7 +7,7 @@ interface PropsCardPhrase {
   color?: string;
 }
 
-const CardPhrase = memo(({ createdAt, detail, color }: PropsCardPhrase) => {
+const CardPhrase = memo(({ createdAt = '', detail, color }: PropsCardPhrase) => {
   return (
     <ContainerCard color={color}>
       <p>{detail}</p>
