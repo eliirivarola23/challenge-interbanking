@@ -1,0 +1,20 @@
+.containerHeaderWithSearch {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  justify-content: space-evenly;
+  margin-left: 5px;
+  padding: 15px;
+}
+.containerHeaderWithSearch > h1 {
+  margin-top: 15px;
+  text-align: start;
+}
+
+@media (min-width: 500px) {
+  .containerHeaderWithSearch {
+    width: max-content;
+  }
+}

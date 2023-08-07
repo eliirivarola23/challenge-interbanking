@@ -1,0 +1,11 @@
+.container {
+  padding: 15px;
+}
+@media (min-width: 674px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    grid-auto-rows: minmax(250px, auto);
+    grid-auto-flow: row;
+  }
+}
